@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AceyHub Workspace</title>
+  <link rel="stylesheet" href="acehub.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-badge">A</span>
+      <span class="brand-title">AceyHub</span>
+    </div>
+    <nav class="nav-menu">
+      <button class="nav-btn active" data-tab="tasks">Tasks & Timer</button>
+      <button class="nav-btn" data-tab="family">Family Portal</button>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="themeToggleBtn" class="theme-btn">Switch Theme</button>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <section id="tasks" class="tab-panel active">
+      <header class="section-header">
+        <h1>BlackTask Manager</h1>
+        <p>Track tasks and session duration</p>
+      </header>
+
+      <div class="grid-2">
+        <div class="card">
+          <h2>Session Timer</h2>
+          <div class="timer-display" id="timerDisplay">00:00:00</div>
+          <div class="btn-group">
+            <button id="startTimerBtn" class="btn btn-primary">Start</button>
+            <button id="stopTimerBtn" class="btn btn-danger">Stop</button>
+            <button id="resetTimerBtn" class="btn btn-secondary">Reset</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Add New Task</h2>
+          <form id="taskForm">
+            <input type="text" id="taskInput" placeholder="Enter task name..." required>
+            <select id="taskPriority">
+              <option value="Low">Low Priority</option>
+              <option value="Medium" selected>Medium Priority</option>
+              <option value="High">High Priority</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Add Task</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card margin-top">
+        <h2>Active Tasks</h2>
+        <ul id="taskList" class="item-list"></ul>
+      </div>
+    </section>
+
+    <section id="family" class="tab-panel">
+      <header class="section-header">
+        <h1>The Family Portal</h1>
+        <p>Shared grocery list and savings tracker</p>
+      </header>
+
+      <div class="grid-2">
+        <div class="card">
+          <h2>Shared Grocery List</h2>
+          <form id="groceryForm">
+            <div class="input-group">
+              <input type="text" id="groceryInput" placeholder="Add grocery item..." required>
+              <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+          </form>
+          <ul id="groceryList" class="item-list margin-top"></ul>
+        </div>
+
+        <div class="card">
+          <h2>Family Fund Tracker</h2>
+          <div class="fund-status">
+            <span class="fund-amount" id="fundAmount">$0.00</span>
+            <span class="fund-target">Goal: $1,000.00</span>
+          </div>
+          <div class="progress-bar">
+            <div id="fundProgress" class="progress-fill"></div>
+          </div>
+          <form id="fundForm" class="margin-top">
+            <div class="input-group">
+              <input type="number" id="fundInput" placeholder="Amount to add" step="0.01" required>
+              <button type="submit" class="btn btn-primary">Deposit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="acehub.js"></script>
+</body>
+</html>
